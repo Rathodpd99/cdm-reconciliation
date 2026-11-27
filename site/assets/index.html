@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CDM Reconciliation — 10 Jun 2026</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="wrap">
+
+  <header class="page">
+    <h1>CDM Reconciliation</h1>
+    <p class="sub">Cash deposit machine counts against physical cash in hand, by denomination.</p>
+    <div class="meta">
+      <span>CDM date <b>10 Jun 2026</b></span>
+      <span>Counted at <b>Hooper</b></span>
+      <span>Denominations <b>₹2,000 · ₹500 · ₹200 · ₹100</b></span>
+    </div>
+  </header>
+
+  <section class="stats" aria-label="Reconciliation summary">
+    <div class="stat">
+      <div class="label">CDM entry total</div>
+      <div class="value inr" id="statCdm">—</div>
+      <div class="note" id="statCdmCount">—</div>
+    </div>
+    <div class="stat">
+      <div class="label">Cash in hand total</div>
+      <div class="value inr" id="statCash">—</div>
+      <div class="note" id="statCashCount">—</div>
+    </div>
+    <div class="stat" id="statDiffCard">
+      <div class="label">Difference</div>
+      <div class="value inr" id="statDiff">—</div>
+      <div class="note" id="statDiffNote">—</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Denomination-wise counts <span>Edit any count — totals update as you type</span></h2>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Denomination</th>
+            <th scope="col">CDM count</th>
+            <th scope="col">CDM total</th>
+            <th scope="col">Cash count</th>
+            <th scope="col">Cash total</th>
+            <th scope="col">Count diff</th>
+            <th scope="col">Amount diff</th>
+            <th scope="col">Variance %</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+        <tfoot>
+          <tr class="total">
+            <td>TOTAL</td>
+            <td id="tCdmCount">0</td>
+            <td class="inr" id="tCdmTotal">0</td>
+            <td id="tCashCount">0</td>
+            <td class="inr" id="tCashTotal">0</td>
+            <td id="tCountDiff">0</td>
+            <td class="inr" id="tAmountDiff">0</td>
+            <td id="tVariance">0.00%</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </section>
+
+  <p class="status balanced" id="status" role="status" aria-live="polite"></p>
+
+  <footer>
+    <p>Amounts in Indian rupees, grouped in the lakh format used by the source workbook (e.g. ₹2,83,400).</p>
+    <p>Physical cash exceeding the CDM entry is shown as a positive difference; a shortfall is negative.</p>
+    <p>Source figures: CDM_Reconciliation_With_Photo_Extract.xlsx — CDM sheet, counted at Hooper on 10 Jun 2026.</p>
+  </footer>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
